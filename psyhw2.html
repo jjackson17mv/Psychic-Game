@@ -1,34 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 <head>
     <meta charset="UTF-8">
     <title>Psychic Game</title>
 </head>
 
 <body>
-
-    <div>
-    <p id="directions-text">Guess what letter im thinking off? press A, B, or C?</p>
+     
+<div>
+    <p id="directions-text">Guess what letter im thinking off? press a, b, or c to start</p>
     <p id="userchoice-text"></p>
     <p id="computerchoice-text"></p>
     <p id="wins-text"></p>
     <p id="losses-text"></p>
-    <p id="ties-text"></p>
-</div>
+ </div>
     
     <script type="text/javascript">
-    var computerchoice = ["A", "B", "C"];
+    var computerChoices = ["a", "b", "C"];
     
     var wins = 0;
     var losses = 0;
-    var ties = 0;
+    
 
     var directionsText = document.getElementById("directions-text");
     var userChoiceText = document.getElementById("userchoice-text");
-    var ComputerChoiceText = document.getElementById("computerchoice-text");
-    var WinsText = document.getElementById("wins-text");
-    var LossesText = document.getElementById("losses-text");
-    var TiesText = document.getElementById("ties-text");
+    var computerChoiceText = document.getElementById("computerchoice-text");
+    var winsText = document.getElementById("wins-text");
+    var lossesText = document.getElementById("losses-text")
+    ;
+   
 
     document.onkeyup = function(event) {
        
@@ -36,17 +36,14 @@
         
 var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
-        if ((userGuess === "A") ||  (userGuess === "B") || (userguess === "C")) {
+        if ((userGuess === "a") ||  (userGuess === "b") || (userguess === "c")) {
 
-            if ((userGuess === "A" && computerGuess === "C") ||
-                (userGuess === "C" && computerGuess === "A") || 
-                (userGuess === "B" && computerGuess === "A")) {
+            if ((userGuess === "a" && computerGuess === "a") ||
+                (userGuess === "b" && computerGuess === "b") || 
+                (userGuess === "c" && computerGuess === "c")) {
                     wins++;
-                } else if (userGuess === computerGuess)
-                {
-                    ties++;
-                } else {
-                    losses++;
+                } else if (userGuess === computerGuess) {
+                losses++;
                 }
         
             
@@ -58,9 +55,8 @@ var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.l
         computerChoiceText.textContent = "The computer chose: " + computerGuess;
         winsText.textContent = "wins: " + wins;
         lossesText.textContent = "losses: " + losses;
-        tiesText.textContent = "ties: " + ties;
-        }
-         };
+         }
+     };
     </script>
 
 </body>
